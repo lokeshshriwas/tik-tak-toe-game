@@ -45,11 +45,13 @@ let boxes = document.querySelectorAll(".box")
 boxes.forEach(element => {
     let boxText = element.querySelector(".boxText")
     element.addEventListener("click", ()=>{
-        if(boxText.innerText == ""){
-            boxText.innerText = turn
-            turn = changeTurn()
-            audioTurn.play()
-            checkWin()
+        if(isGameOver == false){
+            if(boxText.innerText == ""){
+                boxText.innerText = turn
+                turn = changeTurn()
+                audioTurn.play()
+                checkWin()
+        }
             if(!isGameOver){
                 document.querySelector(".info").innerText = `Turn of ${turn}`
             }
