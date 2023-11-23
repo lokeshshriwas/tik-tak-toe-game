@@ -1,4 +1,3 @@
-console.log("he")
 const audioTurn = new Audio("ting.mp3")
 const gameOver = new Audio("gameover.mp3")
 let turn = "X"
@@ -9,7 +8,7 @@ let reset = document.querySelector(".reset")
 // change turn from X to O and O to X
 let changeTurn = ()=>{
     return turn === "X"? "O" : "X"
-}
+} 
 
 
 // check for win winning logic
@@ -44,19 +43,19 @@ let checkWin = ()=>{
 let boxes = document.querySelectorAll(".box")
 boxes.forEach(element => {
     let boxText = element.querySelector(".boxText")
-    element.addEventListener("click", ()=>{
-        if(isGameOver == false){
-            if(boxText.innerText == ""){
-                boxText.innerText = turn
-                turn = changeTurn()
-                audioTurn.play()
-                checkWin()
-        }
-            if(!isGameOver){
-                document.querySelector(".info").innerText = `Turn of ${turn}`
+        element.addEventListener("click", ()=>{
+            if (isGameOver == false){
+                if(boxText.innerText == ""){
+                    boxText.innerText = turn
+                    turn = changeTurn()
+                    audioTurn.play()
+                    checkWin()
             }
-        }
-    })
+                if(isGameOver == true){
+                    document.querySelector(".info").innerText = `Turn of ${turn}`
+                } 
+            }
+        })
 })
 
 reset.addEventListener("click", ()=>{
